@@ -1,31 +1,54 @@
 @import "~bootstrap/scss/bootstrap";
 
 .app {
-  .row {
-    [class*="col"] {
-      display: flex;
-      flex-flow: row wrap;
-      align-items: center;
-      justify-content: center;
-      min-height: 150px;
-      border: 1px solid black;
-    }
-
-    &:nth-child(2) {
+  .container {
+    .row {
       [class*="col"] {
-        &:nth-child(1) {
-          background-color: lightsalmon;
-        }
-
-        &:nth-child(2) {
-          background-color: lightseagreen;
-          border-style: dashed;
-        }
-
-        &:nth-child(3) {
-          background-color: lightskyblue;
+        @include media-breakpoint-down(sm) {
+          flex-basis: auto;
+          max-width: 100%;
         }
       }
+    }
+  }
+
+  & > .container {
+    .row {
+      [class*="col"] {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+        min-height: 150px;
+        border: 1px solid black;
+      }
+
+      &:nth-child(2) {
+        [class*="col"] {
+          &:nth-child(1) {
+            background-color: lightsalmon;
+          }
+
+          &:nth-child(2) {
+            background-color: lightseagreen;
+            border-style: dashed;
+          }
+
+          &:nth-child(3) {
+            background-color: lightskyblue;
+          }
+        }
+      }
+    }
+  }
+
+  .form {
+    &__data {
+      width: 100%;
+      height: auto;
+      min-height: 150px;
+      overflow: auto;
+      border: 1px solid black;
     }
   }
 }

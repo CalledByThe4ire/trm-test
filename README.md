@@ -1,3 +1,3 @@
 ## Test
 
-Move to folder, type `npm i`, `npm build`
+Move to folder, type `npm i`, `npm start`

@@ -11,6 +11,7 @@ module.exports = merge(webpackConfiguration, {
   devtool: 'eval-source-map',
 
   /* Development Server Configuration */
+  /* Development Server Configuration */
   devServer: {
     contentBase: environment.paths.output,
     watchContentBase: true,
@@ -24,6 +25,14 @@ module.exports = merge(webpackConfiguration, {
       poll: 300,
     },
     ...environment.server,
+    proxy: {
+      '/api/**': {
+        target: 'http://localhost:5000',
+        pathRewrite: { '^/api': '' },
+        secure: false,
+        changeOrigin: true,
+      },
+    },
   },
 
   /* File watcher options */
